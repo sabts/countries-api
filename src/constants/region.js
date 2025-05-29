@@ -2,15 +2,15 @@ export const REGIONS = [
   "All",
   "Africa",
   "Asia",
-  "America",
+  "Americas",
   "Europe",
   "Oceania",
 ];
-export const REGIONS_INDEX = {
-  ALL: 0,
-  AFRICA: 1,
-  ASIA: 2,
-  AMERICA: 3,
-  Europa: 4,
-  OCEANIA: 5,
+export const REGIONS_MAP = {
+  ALL: "All",
+  AFRICA: "Africas",
+  ASIA: "Asia",
+  AMERICAS: "Americas",
+  Europa: "Europe",
+  OCEANIA: "Oceania",
 };
