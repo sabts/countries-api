@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
-import { REGIONS } from "../../constants/region";
+import { REGIONS, REGIONS_INDEX } from "../../constants/region";
+import CountriesDataSheet from "../../components/countries-data-sheet/CountriesDataSheet";
+import { StyledCountriesDataSheetContainer, StyledMainContainer } from "./home-styles";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState(REGIONS_INDEX.ALL);
 
   useEffect(() => {
     getCountries(setCountries);
   }, []);
   return (
-    <>
-      <Header />
+    <StyledMainContainer>
       <form>
         <input
           type="text"
@@ -25,7 +26,6 @@ const Home = () => {
           placeholder="Filter by Region"
           onChange={e => setFilter(e.target.value)}
         >
-          <option value="default">all</option>
           {REGIONS.map(region => (
             <option value={region} key={region}>
               {region}
@@ -33,7 +33,20 @@ const Home = () => {
           ))}
         </select>
       </form>
-    </>
+      <StyledCountriesDataSheetContainer>
+        {countries.map(country=>(
+          <div key={country.name.common}>
+            <CountriesDataSheet
+        flag={country.flags}
+        name={country.name.common}
+        population={country.population}
+        region={country.region}
+        capital={country.capital?.[0]}
+      />
+      </div>
+        ))}
+      </StyledCountriesDataSheetContainer>
+    </StyledMainContainer>
   );
 };
 export default Home;
@@ -48,3 +61,4 @@ const getCountries = async setCountries => {
     console.error("Country not found");
   }
 };
+
