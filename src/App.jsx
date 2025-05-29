@@ -1,12 +1,14 @@
-import Button from "./components/button/Button";
+import { BrowserRouter } from "react-router-dom";
 import { GlobalStyles } from "./styles/GlobalStyles";
+import Router from "./lib/Router";
 
 const App = () => {
   return (
     <>
-      <GlobalStyles />
-      <h1>Template React</h1>
-      <Button />
+      <BrowserRouter>
+        <GlobalStyles />
+        <Router />
+      </BrowserRouter>
     </>
   );
 };
