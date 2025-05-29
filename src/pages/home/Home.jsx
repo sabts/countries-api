@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import { REGIONS, REGIONS_MAP } from "../../constants/region";
 import CountriesDataSheet from "../../components/countries-data-sheet/CountriesDataSheet";
-import { StyledCountriesDataSheetContainer, StyledMainContainer } from "./home-styles";
+import { StyledCountriesDataSheetContainer, StyledForm, StyledMainContainer, StyledSearch, StyledSelection } from "./home-styles";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -16,14 +16,14 @@ const Home = () => {
   }, []);
   return (
     <StyledMainContainer>
-      <form>
-        <input
+      <StyledForm>
+        <StyledSearch
           type="text"
           placeholder="Search for a contry..."
           value={search}
           onChange={search => setSearch(search.target.value)}
         />
-      <select
+      <StyledSelection
   value={filter}
   onChange={(e) => setFilter(e.target.value)}
 >
@@ -32,8 +32,8 @@ const Home = () => {
               {region}
             </option>
           ))}
-        </select>
-      </form>
+        </StyledSelection>
+      </StyledForm>
       <StyledCountriesDataSheetContainer>
         {filteredCountries.map(country=>(
           <div key={country.name.common}>

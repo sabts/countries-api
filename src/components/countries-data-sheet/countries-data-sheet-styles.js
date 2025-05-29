@@ -4,7 +4,7 @@ import { COLORS_LIGHT } from "../../styles/colors";
 const StyledCountryContainer = styled.div`
   display: flex;
   width: 264px;
-  height: 336px;
+  height: 360px;
   flex-direction: column;
   align-items: flex-start;
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.1);
