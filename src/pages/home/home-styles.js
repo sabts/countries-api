@@ -8,6 +8,7 @@ const StyledMainContainer = styled.section`
   padding: 16px;
   justify-content: center;
   align-items: center;
+  background-color: ${COLORS_LIGHT.background};
 
   @media screen and (min-width: 768px) {
     padding: 84px;
@@ -21,6 +22,11 @@ const StyledForm = styled.form`
 
   @media screen and (min-width: 768px) {
     flex-wrap: nowrap;
+  }
+
+  @media screen and (min-width: 1024px) {
+    justify-content: space-between;
+    width: 95%;
   }
 `;
 

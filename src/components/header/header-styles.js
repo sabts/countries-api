@@ -8,7 +8,7 @@ const StyledHeaderContainer = styled.section`
   padding: 24px;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.6);
   color: ${COLORS_LIGHT.primary};
 
   @media screen and (min-width: 768px) {

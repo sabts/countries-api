@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Header from "../../components/header/Header";
 import { REGIONS, REGIONS_MAP } from "../../constants/region";
 import CountriesDataSheet from "../../components/countries-data-sheet/CountriesDataSheet";
 import { StyledCountriesDataSheetContainer, StyledForm, StyledMainContainer, StyledSearch, StyledSelection } from "./home-styles";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -19,7 +19,7 @@ const Home = () => {
       <StyledForm>
         <StyledSearch
           type="text"
-          placeholder="Search for a contry..."
+          placeholder="Search for a country..."
           value={search}
           onChange={search => setSearch(search.target.value)}
         />
@@ -36,15 +36,19 @@ const Home = () => {
       </StyledForm>
       <StyledCountriesDataSheetContainer>
         {filteredCountries.map(country=>(
-          <div key={country.name.common}>
+          <Link key={country.name.common}
+          to={`/${country.name.common}`}
+          state={{ country }}>
+          <div>
             <CountriesDataSheet
         flag={country.flags}
         name={country.name.common}
         population={country.population}
         region={country.region}
-        capital={country.capital?.[0]}
+        capital={country.capital}
       />
       </div>
+      </Link>
         ))}
       </StyledCountriesDataSheetContainer>
     </StyledMainContainer>
@@ -72,7 +76,7 @@ const getCountries = async setCountries => {
     const response = await fetch("https://restcountries.com/v3.1/all");
     const countries = await response.json();
     setCountries(countries);
-   //console.log(countries);
+   console.log(countries);
   } catch (error) {
     console.error("Country not found");
   }
