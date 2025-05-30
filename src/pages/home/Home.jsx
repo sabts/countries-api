@@ -38,7 +38,7 @@ const Home = () => {
         {filteredCountries.map(country=>(
           <Link key={country.name.common}
           to={`/${country.name.common}`}
-          state={{ country }}>
+          state={{ country, countries: countries }}>
           <div>
             <CountriesDataSheet
         flag={country.flags}
@@ -75,7 +75,6 @@ const getCountries = async setCountries => {
     const response = await fetch("https://restcountries.com/v3.1/all");
     const countries = await response.json();
     setCountries(countries);
-  //console.log(countries);
   } catch (error) {
     console.error("Country not found");
   }

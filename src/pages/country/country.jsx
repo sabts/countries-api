@@ -3,12 +3,18 @@ import { StyledCountryContainer, StyledTextDiv } from "./country-styles";
 
 const Country = ({}) => {
   const { state } = useLocation();
-  const country = state.country;
-  //console.log(country)
+  const {country, countries} = state;
+  console.log(countries)
+
   const nativeName = Object.values(country.name.nativeName)[0].official;
   const topLevelDomain = Object.values(country.tld)[0];
   const currencies = Object.values(country.currencies)[0].name;
-   const languages = Object.values(country.languages)[0]
+   const languages = Object.values(country.languages).join(", ")
+
+   const borderCountries = country.borders?.map(borderCode =>
+    countries.find(c => c.cca3 === borderCode)
+  )
+
   return (
     <StyledCountryContainer>
       <Link to="/">
@@ -54,9 +60,16 @@ const Country = ({}) => {
       </section>
       <section>
         <h6>Border Countries</h6>
-        {country?.borders?.map(borderCode => (
-          <button key={borderCode}>{borderCode}</button>
-        ))}
+       {borderCountries.map(border => (
+            <Link
+              key={border.cca3}
+              to={`/${border.name.common}`}
+              state={{ country: border, countries }}
+            >
+              <button>{border.name.common}</button>
+            </Link>
+          )
+        )}
       </section>
     </StyledCountryContainer>
   );
