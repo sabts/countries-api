@@ -70,13 +70,12 @@ const filterBySearch = (filteredCountriesByRegion, search) => {
     :  filteredCountriesByRegion;
 };
 
-
 const getCountries = async setCountries => {
   try {
     const response = await fetch("https://restcountries.com/v3.1/all");
     const countries = await response.json();
     setCountries(countries);
-  console.log(countries);
+  //console.log(countries);
   } catch (error) {
     console.error("Country not found");
   }

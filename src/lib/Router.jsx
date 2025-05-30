@@ -12,7 +12,6 @@ const Router = () => {
           <Route path="/:country" element={<Country />} />
         </Route>
       </Routes>
-      {/*Rutas dinamicas */}
     </>
   );
 };
