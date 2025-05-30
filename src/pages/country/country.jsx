@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { StyledCountryContainer, StyledTextDiv } from "./country-styles";
+import { StyledBorderCaption, StyledBorderDiv, StyledButton, StyledCaption, StyledCountryContainer, StyledCountryFlag, StyledCountryInfo, Styledtext, StyledTextDiv, StyledTitle } from "./country-styles";
 
 const Country = ({}) => {
   const { state } = useLocation();
@@ -13,60 +13,63 @@ const Country = ({}) => {
    const borderCountries = country.borders?.map(borderCode =>
     countries.find(c => c.cca3 === borderCode)
   )
-  console.log(borderCountries)
   return (
     <StyledCountryContainer>
       <Link to="/">
-        <button>Back</button>
+        <StyledButton> 
+          <img src="/assets/back-arrow.svg"/>
+          Back</StyledButton>
       </Link>
-      <img src={country.flags.png} alt={country.flags.alt} />
+      < StyledCountryFlag src={country.flags.png} alt={country.flags.alt} />
+      <StyledCountryInfo>
+        <StyledTitle>{country.name.common}</StyledTitle>
+        <StyledTextDiv>
+          <StyledCaption >Native Name:</StyledCaption>
+          <Styledtext>{nativeName}</Styledtext>
+        </StyledTextDiv>
+        <StyledTextDiv>
+          <StyledCaption >Population:</StyledCaption>
+          <Styledtext>{country.population}</Styledtext>
+        </StyledTextDiv>
+        <StyledTextDiv>
+          <StyledCaption>Region:</StyledCaption>
+          <Styledtext>{country.region}</Styledtext>
+        </StyledTextDiv>
+        <StyledTextDiv>
+          <StyledCaption >Sub Region:</StyledCaption>
+          <Styledtext>{country.subregion}</Styledtext>
+        </StyledTextDiv>
+        <StyledTextDiv>
+          <StyledCaption>Capital:</StyledCaption>
+          <Styledtext>{country.capital}</Styledtext>
+        </StyledTextDiv>
+      </StyledCountryInfo>
+      <StyledCountryInfo>
+        <StyledTextDiv>
+          <StyledCaption>Top Level Domain:</StyledCaption>
+          <Styledtext>{topLevelDomain}</Styledtext>
+        </StyledTextDiv>
+        <StyledTextDiv>
+          <StyledCaption>Currencies:</StyledCaption>
+          <Styledtext>{currencies}</Styledtext>
+        </StyledTextDiv>
+        <StyledTextDiv>
+          <StyledCaption>Languages:</StyledCaption>
+          <Styledtext>{languages }</Styledtext>
+        </StyledTextDiv>
+      </StyledCountryInfo>
       <section>
-        <h2>{country.name.common}</h2>
-        <StyledTextDiv>
-          <h6>Native Name:</h6>
-          <p>{nativeName}</p>
-        </StyledTextDiv>
-        <StyledTextDiv>
-          <h6>Population:</h6>
-          <p>{country.population}</p>
-        </StyledTextDiv>
-        <StyledTextDiv>
-          <h6>Region:</h6>
-          <p>{country.region}</p>
-        </StyledTextDiv>
-        <StyledTextDiv>
-          <h6>Sub Region:</h6>
-          <p>{country.subregion}</p>
-        </StyledTextDiv>
-        <StyledTextDiv>
-          <h6>Capital:</h6>
-          <p>{country.capital}</p>
-        </StyledTextDiv>
-      </section>
-      <section>
-        <StyledTextDiv>
-          <h6>Top Level Domain:</h6>
-          <p>{topLevelDomain}</p>
-        </StyledTextDiv>
-        <StyledTextDiv>
-          <h6>Currencies:</h6>
-          <p>{currencies}</p>
-        </StyledTextDiv>
-        <StyledTextDiv>
-          <h6>Languages:</h6>
-          <p>{languages }</p>
-        </StyledTextDiv>
-      </section>
-      <section>
-        <h6>Border Countries</h6>
+        <StyledBorderCaption>Border Countries</StyledBorderCaption>
+        <StyledBorderDiv>
         {borderCountries.map(border => (
            <Link 
            to={`/${border.name.common}`} 
            key={border.cca3} 
            state={{ country: border, countries }}>
-          <button key={border}>{border.name.common}</button>
+          <StyledButton key={border}>{border.name.common}</StyledButton>
           </Link>
         ))}
+        </StyledBorderDiv>
       </section>
     </StyledCountryContainer>
   );

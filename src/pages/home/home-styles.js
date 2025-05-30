@@ -73,11 +73,6 @@ const StyledSelection = styled.select`
   }
 `;
 
-const StyledOptions = styled.option`
-  position: absolute;
-  top: 100%;
-`;
-
 const StyledCountriesDataSheetContainer = styled.section`
   display: flex;
   flex-direction: column;
