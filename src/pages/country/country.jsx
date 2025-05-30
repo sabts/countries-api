@@ -4,7 +4,6 @@ import { StyledCountryContainer, StyledTextDiv } from "./country-styles";
 const Country = ({}) => {
   const { state } = useLocation();
   const {country, countries} = state;
-  console.log(countries)
 
   const nativeName = Object.values(country.name.nativeName)[0].official;
   const topLevelDomain = Object.values(country.tld)[0];
@@ -14,7 +13,7 @@ const Country = ({}) => {
    const borderCountries = country.borders?.map(borderCode =>
     countries.find(c => c.cca3 === borderCode)
   )
-
+  console.log(borderCountries)
   return (
     <StyledCountryContainer>
       <Link to="/">
@@ -60,18 +59,21 @@ const Country = ({}) => {
       </section>
       <section>
         <h6>Border Countries</h6>
-       {borderCountries.map(border => (
-            <Link
-              key={border.cca3}
-              to={`/${border.name.common}`}
-              state={{ country: border, countries }}
-            >
-              <button>{border.name.common}</button>
-            </Link>
-          )
-        )}
+        {borderCountries.map(border => (
+           <Link 
+           to={`/${border.name.common}`} 
+           key={border.cca3} 
+           state={{ country: border, countries }}>
+          <button key={border}>{border.name.common}</button>
+          </Link>
+        ))}
       </section>
     </StyledCountryContainer>
   );
 };
 export default Country;
+
+//hacer un find de todos los paises con el country.name.common con las iniciales del borderCode
+
+//find(c => c.cca3 === borderCode)
+//cioc es igual que el  bordercode
