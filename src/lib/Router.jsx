@@ -9,7 +9,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/:countryName" element={<Country />} />
+          <Route path="/:country" element={<Country />} />
         </Route>
       </Routes>
       {/*Rutas dinamicas */}
