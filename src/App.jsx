@@ -8,7 +8,7 @@ const App = () => {
     <>
     <ThemeModeProvider>
       <BrowserRouter>
-        <GlobalStyles />
+        <GlobalStyles isDarkMode={isDarkMode} />
         <Router />
       </BrowserRouter>
       </ThemeModeProvider>

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { COLORS_DARK, COLORS_LIGHT } from "./colors";
 
 export const GlobalStyles = createGlobalStyle`
 *,
@@ -30,5 +31,9 @@ nav ul {
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: ${props =>
+    props.isDarkMode ? COLORS_DARK.background : COLORS_LIGHT.background};
+    color: ${props =>
+      props.isDarkMode ? COLORS_DARK.secondary : COLORS_LIGHT.secondary};
 }
 `;
