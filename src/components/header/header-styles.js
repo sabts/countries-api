@@ -23,7 +23,7 @@ const StyledH1 = styled.h1`
   color: ${COLORS_LIGHT.secondary};
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.input`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,6 +35,15 @@ const StyledButton = styled.button`
   color: ${COLORS_LIGHT.secondary};
   border: none;
   background-color: transparent;
+  border: 1px solid black;
 `;
 
-export { StyledHeaderContainer, StyledH1, StyledButton };
+const StyledLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: ${COLORS_LIGHT.secondary};
+`;
+
+export { StyledHeaderContainer, StyledH1, StyledButton, StyledLabel };
