@@ -8,7 +8,7 @@ const StyledMainContainer = styled.section`
   padding: 16px;
   justify-content: center;
   align-items: center;
-  background-color: ${COLORS_LIGHT.background};
+  background-color: ${({ theme }) => theme.background};
 
   @media screen and (min-width: 768px) {
     padding: 84px;
@@ -37,13 +37,14 @@ const StyledSearch = styled.input`
   justify-content: center;
   align-items: flex-start;
   border-radius: 5px;
-  background-color: ${COLORS_LIGHT.primary};
+  background-color: ${({ theme }) => theme.primary};
   box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 135%;
   border: none;
   padding-inline: 16px;
+  color: ${({ theme }) => theme.secondary};
 
   @media screen and (min-width: 768px) {
     width: 480px;
@@ -58,7 +59,8 @@ const StyledSelection = styled.select`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background: ${COLORS_LIGHT.primary};
+  background: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.secondary};
   box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
   align-self: stretch;
   padding: 16px;

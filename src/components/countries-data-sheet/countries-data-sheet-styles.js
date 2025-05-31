@@ -10,6 +10,7 @@ const StyledCountryContainer = styled.div`
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow-x: clip;
+  background-color: ${({ theme }) => theme.primary};
 `;
 
 const StyledCountryFlag = styled.img`
@@ -34,7 +35,7 @@ const StyledTextDiv = styled.div`
 `;
 const StyledTitle = styled.h2`
   font-size: 1.125rem;
-  color: ${COLORS_LIGHT.secondary};
+  color: ${({ theme }) => theme.secondary};
   font-weight: 800;
   line-height: 145%;
 `;
@@ -42,13 +43,13 @@ const StyledTitle = styled.h2`
 const StyledCaption = styled.h6`
   font-size: 0.875rem;
   font-weight: 600;
-  color: ${COLORS_LIGHT.secondary};
+  color: ${({ theme }) => theme.secondary};
 `;
 
 const Styledtext = styled.span`
   font-size: 0.875rem;
   font-weight: 300;
-  color: ${COLORS_LIGHT.secondary};
+  color: ${({ theme }) => theme.secondary};
 `;
 export {
   StyledCountryContainer,

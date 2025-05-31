@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS_LIGHT } from "../../styles/colors";
 
 const StyledHeaderContainer = styled.section`
   display: flex;
@@ -9,7 +8,8 @@ const StyledHeaderContainer = styled.section`
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.6);
-  color: ${COLORS_LIGHT.primary};
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.primary};
 
   @media screen and (min-width: 768px) {
     padding-inline: 58px;
@@ -20,7 +20,7 @@ const StyledH1 = styled.h1`
   font-size: 0.875rem;
   font-weight: 800;
   line-height: 20px;
-  color: ${COLORS_LIGHT.secondary};
+  color: ${({ theme }) => theme.secondary};
 `;
 
 const StyledButton = styled.input`
@@ -37,7 +37,7 @@ const StyledLabel = styled.label`
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 135%;
-  color: ${COLORS_LIGHT.secondary};
+  color: ${({ theme }) => theme.secondary};
 `;
 
 export { StyledHeaderContainer, StyledH1, StyledButton, StyledLabel };

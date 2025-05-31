@@ -8,7 +8,7 @@ const StyledCountryContainer = styled.section`
   padding: 24px;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: ${COLORS_LIGHT.background};
+  background-color: ${({ theme }) => theme.background};
 
   @media screen and (min-width: 768px) {
     padding: 84px;
@@ -34,8 +34,8 @@ const StyledButton = styled.button`
   border-radius: 2px;
   border: none;
   box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.1);
-  background-color: ${COLORS_LIGHT.primary};
-  color: ${COLORS_LIGHT.secondary};
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.secondary};
   gap: 8px;
   padding: 24px;
 
@@ -62,6 +62,7 @@ const StyledCountryInfoContainer = styled.section`
     display: flex;
     flex-direction: column;
     gap: 40px;
+    color: ${({ theme }) => theme.secondary};
   }
 
   @media screen and (min-width: 1024px) {
@@ -87,7 +88,6 @@ const StyledTextDiv = styled.div`
 `;
 const StyledTitle = styled.h2`
   font-size: 1.5rem;
-  color: ${COLORS_LIGHT.secondary};
   font-weight: 800;
   line-height: 145%;
 `;
@@ -95,19 +95,17 @@ const StyledTitle = styled.h2`
 const StyledCaption = styled.h6`
   font-size: 0.875rem;
   font-weight: 600;
-  color: ${COLORS_LIGHT.secondary};
 `;
 
 const Styledtext = styled.span`
   font-size: 0.875rem;
   font-weight: 300;
-  color: ${COLORS_LIGHT.secondary};
 `;
 
 const StyledBorderCaption = styled.h6`
   font-size: 0.875rem;
   font-weight: 600;
-  color: ${COLORS_LIGHT.secondary};
+  color: ${({ theme }) => theme.secondary};
 `;
 
 const StyledBorderDiv = styled.div`
@@ -115,6 +113,7 @@ const StyledBorderDiv = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 8px;
+  ${({ theme }) => theme.secondary};
 
   @media screen and (min-width: 1024px) {
     grid-column: 1/2;
