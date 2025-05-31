@@ -24,25 +24,19 @@ const StyledH1 = styled.h1`
 `;
 
 const StyledButton = styled.input`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 135%;
-  color: ${COLORS_LIGHT.secondary};
-  border: none;
-  background-color: transparent;
-  border: 1px solid black;
+  appearance: none;
+  pointer-events: none;
 `;
 
 const StyledLabel = styled.label`
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
+  gap: 4px;
+  background-color: transparent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 135%;
   color: ${COLORS_LIGHT.secondary};
 `;
 
