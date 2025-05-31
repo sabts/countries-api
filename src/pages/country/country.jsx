@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { StyledBorderCaption, StyledBorderDiv, StyledButton, StyledCaption, StyledCountryContainer, StyledCountryFlag, StyledCountryInfo, Styledtext, StyledTextDiv, StyledTitle } from "./country-styles";
+import { StyledBorderCaption, StyledBorderDiv, StyledButton, StyledCaption, StyledCountryContainer, StyledCountryFlag, StyledCountryInfo, StyledCountryInfoContainer, Styledtext, StyledTextDiv, StyledTitle } from "./country-styles";
 
 const Country = ({}) => {
   const { state } = useLocation();
@@ -21,6 +21,8 @@ const Country = ({}) => {
           Back</StyledButton>
       </Link>
       < StyledCountryFlag src={country.flags.png} alt={country.flags.alt} />
+
+      <StyledCountryInfoContainer>
       <StyledCountryInfo>
         <StyledTitle>{country.name.common}</StyledTitle>
         <StyledTextDiv>
@@ -58,6 +60,7 @@ const Country = ({}) => {
           <Styledtext>{languages }</Styledtext>
         </StyledTextDiv>
       </StyledCountryInfo>
+      </StyledCountryInfoContainer>
       <section>
         <StyledBorderCaption>Border Countries</StyledBorderCaption>
         <StyledBorderDiv>

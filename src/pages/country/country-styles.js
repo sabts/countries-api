@@ -17,11 +17,17 @@ const StyledCountryContainer = styled.section`
     justify-content: space-between;
     align-items: center;
   }
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
 `;
 
 const StyledButton = styled.button`
   display: flex;
-  width: 100%;
+  width: fit-content;
   height: 32px;
   justify-content: center;
   align-items: center;
@@ -31,7 +37,12 @@ const StyledButton = styled.button`
   background-color: ${COLORS_LIGHT.primary};
   color: ${COLORS_LIGHT.secondary};
   gap: 8px;
-  padding: 16px;
+  padding: 24px;
+
+  @media screen and (min-width: 1024px) {
+    grid-column: 1;
+    grid-template-rows: 1;
+  }
 `;
 
 const StyledCountryFlag = styled.img`
@@ -39,6 +50,27 @@ const StyledCountryFlag = styled.img`
   height: auto;
   border-radius: 5px;
   object-fit: contain;
+
+  @media screen and (min-width: 1024px) {
+    grid-column: 1;
+    grid-template-rows: 2;
+  }
+`;
+
+const StyledCountryInfoContainer = styled.section`
+  @media screen and (min-width: 678px) {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
 `;
 
 const StyledCountryInfo = styled.div`
@@ -83,12 +115,19 @@ const StyledBorderDiv = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 8px;
+
+  @media screen and (min-width: 1024px) {
+    grid-column: 1/2;
+    grid-template-rows: 3;
+    width: 200%;
+  }
 `;
 
 export {
   StyledCountryContainer,
   StyledButton,
   StyledCountryFlag,
+  StyledCountryInfoContainer,
   StyledCountryInfo,
   StyledTextDiv,
   StyledTitle,
